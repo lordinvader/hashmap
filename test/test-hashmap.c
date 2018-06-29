@@ -5,7 +5,7 @@
 #include <hashmap.h>
 #include <hashfun.h>
 
-#define assert(a)\
+#define test(a)\
   printf("TEST: %50s\tin file: %20s on line: %5d\t", #a, __FILE__, __LINE__);\
   if(a) printf("PASSED\n");\
   else {\
@@ -33,7 +33,7 @@ int main(void)
 
 static void test_count_empty()
 {
-  assert(HashMap_count(HashMap_new(NULL, NULL))==0);
+  test(HashMap_count(HashMap_new(NULL, NULL))==0);
 }
 
 static void test_populate(HashMap* hm)
@@ -44,7 +44,7 @@ static void test_populate(HashMap* hm)
   for(i=0; i<=n; i++)
     HashMap_insert(hm, (void*)i, (void*)i);
 
-  assert(HashMap_count(hm)==n);
+  test(HashMap_count(hm)==n);
 }
 
 static void test_depopulate(HashMap* hm)
@@ -55,6 +55,6 @@ static void test_depopulate(HashMap* hm)
   for(i=0; i<=n; i++)
     HashMap_delete(hm, (void*)i);
 
-  assert(HashMap_count(hm)==0);
+  test(HashMap_count(hm)==0);
 }
 
