@@ -11,7 +11,7 @@ double strhash(char* s)
   if(*s=='\0') 
     return 0;
   else
-    return strhash(s+1)+(double)strcmp(base, s);
+    return strhash(s+1)+(double)strcmp(base, s)*(double)strlen(s);
 }
 
 
