@@ -2,7 +2,7 @@ CC = gcc
 INCLUDE = include/
 CFLAGS = -g -Wall -Werror -pedantic -I $(INCLUDE)
 
-all: Makefile dirs
+all: Makefile dirs test
 
 test: bin/test-hashmap
 	./bin/test-hashmap
@@ -15,6 +15,9 @@ build/%.o: src/%.c
 
 build/%.o: test/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -vfr bin build
 
 dirs:
 	mkdir -p build bin
