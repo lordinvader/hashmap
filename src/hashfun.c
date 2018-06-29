@@ -2,16 +2,20 @@
 #include <string.h>
 
 /*
-  Mappa distanza da una stringa
+  Tiene conto dei primi sizeof(double) caratteri
 */
 double strhash(char* s)
 {
-  char* base = "c";
+  long
+    i,
+    res = 0;
   
-  if(*s=='\0') 
-    return 0;
-  else
-    return strhash(s+1)+(double)strcmp(base, s)*(double)strlen(s);
+  for(i=strlen(s)-1; i>=0; i--) {
+    res = res<<8;
+    res += (long)s[i];
+  }
+
+  return (double)res;
 }
 
 

@@ -57,7 +57,7 @@ static long inspect_free(HashMap* hm, void* key);
   * size           grandezza della tabella
 
 RETURNS:  
-L'hash calcolato per la chiave e il tentativo sulla tabella.
+L'hash calcolato dati la chiave e il tentativo sulla tabella.
  */
 static long map(double key, long i, long size);
 
@@ -178,8 +178,8 @@ static long map(double key, long i, long size)
   h1 = ((long)key % size)+1;
   h2 = ((long)(7*key) % size)+1;
 
-  res = (long)(h1 + i*h2);
-  if(res<0) res *= -1;
+  res = h1 + i*h2;
+  //if(res<0) res *= -1;              really needed?
   
   return res%size;
 }
