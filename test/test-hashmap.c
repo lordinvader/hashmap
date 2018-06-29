@@ -6,10 +6,10 @@
 #include <hashfun.h>
 
 #define test(a)\
-  printf("TEST: %50s\tin file: %20s on line: %5d\t", #a, __FILE__, __LINE__);\
-  if(a) printf("PASSED\n");\
+  fprintf(stderr, "TEST: %50s\tin file: %20s in line: %5d\t", #a, __FILE__, __LINE__); \
+  if(a) fprintf(stderr, "PASSED\n");                                     \
   else {\
-    printf("NOT PASSED!!\n");\
+    fprintf(stderr, "NOT PASSED!!\n");\
     exit(-1);\
   }
 
@@ -38,7 +38,7 @@ static void test_count_empty()
 
 static void test_populate(HashMap* hm)
 {
-  long n = 50;
+  long n = 1000000;
   long i;
 
   for(i=0; i<=n; i++)

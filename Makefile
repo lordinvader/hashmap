@@ -1,6 +1,6 @@
 CC = gcc
 INCLUDE = include/
-CFLAGS = -g -Wall -Werror -pedantic -I $(INCLUDE)
+CFLAGS = -g -O2 -Wall -Werror -pedantic -I $(INCLUDE)
 
 all: Makefile dirs test
 
